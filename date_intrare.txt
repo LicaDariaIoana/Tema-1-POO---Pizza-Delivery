@@ -1,0 +1,82 @@
+13
+margherita mozzarella,busuioc subtire tomato
+pepperoni mozzarella,pepperoni clasic tomato
+quattro_formaggi mozzarella,gorgonzola,parmezan,brie clasic alb
+hawaiian mozzarella,sunca,ananas subtire tomato
+vegetariana mozzarella,ardei,ciuperci,ceapa,masline subtire pesto
+capricciosa mozzarella,sunca,ciuperci,masline,anghinare clasic tomato
+diavola mozzarella,salam_picant,ardei_iute subtire tomato
+funghi mozzarella,ciuperci clasic alb
+tonno mozzarella,ton,ceapa subtire tomato
+calzone mozzarella,sunca,ciuperci subtire tomato
+mexicana mozzarella,chorizo,ardei,porumb clasic barbeque
+romana mozzarella,sunca,ciuperci,ou subtire tomato
+BBQ_chicken mozzarella,pui_barbeque clasic barbeque
+
+25
+Popescu_Ana str_Matei_Voicu 0711623342
+Ionescu_Mihai str_Unirii 0723345567
+Ciulin_Andreea str_Libertatii 0734456678
+Dumitrescu_Radu str_Victoriei 0745567789
+Stanioiu_Larisa str_Patriotilor 0756678890
+Marin_Gabriel str_Revolutiei 0767789901
+Tudor_Cristina str_Muncii 0778890012
+Preda_Andrei str_Ciocarliei 0789901123
+Vasilescu_Dan str_Stefan_Cel_Mare 0790012234
+Neagu_Monica str_Poienii 0701123345
+Iacob_Sorin str_Florescu 0712234456
+Musat_Nicoleta str_Heroilor 0723345567
+Niculae_Alin str_Calarasilor 0734456678
+Dragomir_Adina str_Independentei 0745567789
+Sandu_Cosmin str_Poporului 0756678890
+Oprea_Simona str_Vasile_Alecsandri 0767789901
+Rusu_Cristian str_Macin 0778890012
+Enache_Alexandra str_Bratianu 0789901123
+Dinca_Viorel str_Tineretului 0790012234
+Matei_Camelia str_Ciprian_Porumbescu 0701123345
+Stanescu_Valentin str_Cetatii 0712234456
+Lazar_Elisabeta str_Fagului 0723345567
+Toma_Ionut str_Aleea_Parcului 0734456678
+Popa_Roxana str_Balbini 0745567789
+Sandulescu_Vlad str_Rotunda 0756678890
+
+11
+Popescu_Alex curier_incepator 13.5 12 8 17
+Popescu_Ioana sofer 40.0 25 9 18
+Ionescu_Mihai manager 38.5 40 8 16
+Dumitrescu_Andreea casier 30.0 18 10 18
+Stanescu_Radu curier_avansat 45.0 30 7 16
+Marin_Cristina bucatar 36.0 22 9 17
+Tudor_Alin sofer 42.5 26 8 17
+Preda_Larisa curier_incepator 28.0 15 10 18
+Vasilescu_Dan curier_avansat 44.0 31 7 16
+Neagu_Monica manager 39.0 42 8 16
+Iacob_Sorin casier 32.5 19 9 17
+
+
+25
+Popescu_Ana str_Matei_Voicu 07116233421 2 margherita pepperoni Bujeac_Alex 12.30 13.15
+Ionescu_Mihai str_Unirii 0723345567 1 hawaiian Stanescu_Radu 11.00 11.45
+Ciulin_Andreea str_Libertatii 0734456678 3 vegetariana funghi quattro_formaggi Popescu_Ioana 14.15 15.10
+Dumitrescu_Radu str_Victoriei 0745567789 2 diavola tonnocalzone Tudor_Alin 10.50 11.35
+Stanioiu_Larisa str_Patriotilor 0756678890 1 BBQ_chicken Preda_Larisa 13.20 14.05
+Marin_Gabriel str_Revolutiei 0767789901 2 capricciosa margherita Bujeac_Alex 9.45 10.30
+Tudor_Cristina str_Muncii 0778890012 3 mexicana tonnocalzone funghi Stanescu_Radu 15.10 16.05
+Preda_Andrei str_Ciocarliei 0789901123 1 quattro_formaggi Popescu_Ioana 12.05 12.50
+Vasilescu_Dan str_Stefan_Cel_Mare 0790012234 2 diavola vegetariana Tudor_Alin 13.30 14.15
+Neagu_Monica str_Poienii 0701123345 1 hawaiian Preda_Larisa 11.15 12.00
+Iacob_Sorin str_Florescu 0712234456 3 BBQ_chicken margherita funghi Bujeac_Alex 16.00 16.50
+Musat_Nicoleta str_Heroilor 0723345567 2 pepperoni capricciosa Stanescu_Radu 10.20 11.05
+Niculae_Alin str_Calarasilor 0734456678 1 margherita Popescu_Ioana 14.30 15.15
+Dragomir_Adina str_Independentei 0745567789 2 vegetariana quattro_formaggi Tudor_Alin 12.45 13.35
+Sandu_Cosmin str_Poporului 0756678890 3 tonnocalzone diavola funghi Preda_Larisa 11.50 12.40
+Oprea_Simona str_Vasile_Alecsandri 0767789901 2 hawaiian margherita Bujeac_Alex 13.10 13.55
+Rusu_Cristian str_Macin 0778890012 1 mexicana Stanescu_Radu 15.25 16.10
+Enache_Alexandra str_Bratianu 0789901123 2 BBQ_chicken capricciosa Popescu_Ioana 10.35 11.20
+Dinca_Viorel str_Tineretului 0790012234 3 margherita funghi diavola Tudor_Alin 12.00 12.50
+Matei_Camelia str_Ciprian_Porumbescu 0701123345 1 quattro_formaggi Preda_Larisa 14.05 14.50
+Stanescu_Valentin str_Cetatii 0712234456 2 tonnocalzone hawaiian Bujeac_Alex 11.40 12.25
+Lazar_Elisabeta str_Fagului 0723345567 3 pepperoni vegetariana capricciosa Stanescu_Radu 13.15 14.05
+Toma_Ionut str_Aleea_Parcului 0734456678 2 BBQ_chicken margherita Popescu_Ioana 15.50 16.35
+Popa_Roxana str_Balbini 0745567789 1 diavola Tudor_Alin 10.10 10.55
+Sandulescu_Vlad str_Rotunda 0756678890 2 funghi quattro_formaggi Preda_Larisa 12.20 13.05
