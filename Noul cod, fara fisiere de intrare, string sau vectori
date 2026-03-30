@@ -1,0 +1,506 @@
+#include <iostream>
+#include <cstring>
+
+class info_pizza{
+private:
+    char nume[100], topinguri[100], blat[100], sos[100];
+    static int nrPizza;
+
+public:
+// constructori deafault
+info_pizza() {
+    strcpy(nume, "");
+    strcpy(topinguri, "");
+    strcpy(blat, "");
+    strcpy(sos, "");
+}
+
+// constructor cu parametri/ de initializare
+info_pizza(const char* n, const char* t, const char* b, const char* s) {
+    strcpy(nume, n);
+    strcpy(topinguri, t);
+    strcpy(blat, b);
+    strcpy(sos, s);
+    nrPizza++;
+}
+
+// constructor de copiere, pt inca o pizza
+info_pizza(const info_pizza& inca_una){
+	strcpy(nume, inca_una.nume);
+	strcpy(topinguri, inca_una.topinguri);
+	strcpy(blat, inca_una.blat);
+	strcpy(sos,inca_una.sos);
+}
+// destructorul
+~info_pizza(){}
+
+//functie statica pt nr de pizze
+static int getTotalPizze() { return nrPizza; }
+
+//geteri:
+inline const char* getNume() const{return nume;}
+inline const char* getTopinguri() const{return topinguri;}
+inline const char* getBlat() const{return blat;}
+inline const char* getSos() const{return sos;}
+
+//setarii:
+void setNume(const char* n) {
+    if (n != nullptr && strlen(n) < 100)
+        strcpy(nume, n);}
+
+void setTopinguri(const char* t) {
+    if (t != nullptr && strlen(t) < 100)
+        strcpy(topinguri, t);}
+
+void setBlat(const char* b) {
+    if (b != nullptr && strlen(b) < 100)
+        strcpy(blat, b);}
+
+void setSos(const char* s) {
+    if (s != nullptr && strlen(s) < 100)
+        strcpy(sos, s);}
+
+//functie pt citire(>>) pentru info pizza, nu e necesar pt cod dar lam pastrat
+friend std::istream& operator>>(std::istream& citire_pizza, info_pizza& p){
+    citire_pizza>>p.nume>>p.topinguri>>p.blat>>p.sos;
+    return citire_pizza;}
+
+// functia pt afisare(<<) pentru info pizaa
+friend std::ostream& operator<<(std::ostream& afisare_pizza, const info_pizza& p){
+    afisare_pizza<< "Tipul de pizza: "<<p.nume<<", topinguri: "<<p.topinguri<<", blat: "<<p.blat<<", sos: "<<p.sos<<";"<<std::endl;
+    return afisare_pizza;}
+
+//functia pt =
+info_pizza& operator=(const info_pizza& p) {
+    if (this != &p) {
+        strcpy(nume, p.nume);
+        strcpy(topinguri, p.topinguri);
+        strcpy(blat, p.blat);
+        strcpy(sos, p.sos);
+    }
+    return *this;
+}};
+int info_pizza::nrPizza = 0;
+
+class info_clienti{
+private:
+    char nume_client[100], adresa[100], nr_telefon[20];
+
+public:
+
+// constructorul default:
+info_clienti() {
+    strcpy(nume_client, "");
+    strcpy(adresa, "");
+    strcpy(nr_telefon, "");}
+
+
+// constructor cu parametri/ de initializare
+info_clienti(const char* n, const char* a, const char* t) {
+    strcpy(nume_client, n);
+    strcpy(adresa, a);
+    strcpy(nr_telefon, t);}
+
+
+// constructor de copiere
+info_clienti(const info_clienti& c) {
+    strcpy(nume_client, c.nume_client);
+    strcpy(adresa, c.adresa);
+    strcpy(nr_telefon, c.nr_telefon);
+}
+
+// destructor
+~info_clienti() {}
+
+//getari:
+inline const char* getNume_client() const { return nume_client; }
+inline const char* getAdresa() const { return adresa; }
+inline const char* getNr_telefon() const { return nr_telefon; }
+
+//setarii:
+void setNume_client(const char* n) {
+    if (n != nullptr && strlen(n) < 100)
+        strcpy(nume_client, n);}
+
+void setAdresa(const char* a) {
+    if (a != nullptr && strlen(a) < 100)
+        strcpy(adresa, a);}
+
+void setNr_telefon(const char* t) {
+    if (t != nullptr && strlen(t) < 20)
+        strcpy(nr_telefon, t);}
+
+//functia >> pt citire clienti:
+friend std::istream& operator>>(std::istream& citire_clienti, info_clienti& c){
+citire_clienti>>c.nume_client>>c.adresa>>c.nr_telefon;
+return citire_clienti;
+}
+
+//functia << pt clientii
+friend std::ostream& operator<<(std::ostream& afisare_clienti, const info_clienti& c){
+    afisare_clienti<< "Clientul: "<<c.nume_client<<", aflat la adresa: "<<c.adresa<<", cu nr de telefon: "<<c.nr_telefon<<"."<<std::endl;
+    return afisare_clienti;}
+
+//functia pt operatorul =
+info_clienti& operator=(const info_clienti& c){
+    if (this != &c) {
+        strcpy(nume_client, c.nume_client);
+        strcpy(adresa, c.adresa);
+        strcpy(nr_telefon, c.nr_telefon);}
+    return *this;}
+
+// functie validare telefon:
+bool nr_tel_valid() const {
+    if (strlen(nr_telefon) != 10) return false;
+    if (nr_telefon[0] != '0' || nr_telefon[1] != '7') return false;
+    return true;}
+};
+
+class angajati{
+private:
+    char nume[100], pozitie[100];
+    float ore_lucrate, salariu, ora_start, ora_final;
+
+public:
+
+// constructor deafault:
+angajati() {
+    strcpy(nume, "");
+    strcpy(pozitie, "");
+    ore_lucrate = 0;
+    salariu = 0;
+    ora_start = 0;
+    ora_final = 0;
+}
+
+// constructor cu parametri
+angajati(const char* n, const char* p, float o, float s, float os, float of) {
+    strcpy(nume, n);
+    strcpy(pozitie, p);
+    ore_lucrate = o;
+    salariu = s;
+    ora_start = os;
+    ora_final = of;}
+
+// constructor de copiere
+angajati(const angajati& a) {
+    strcpy(nume, a.nume);
+    strcpy(pozitie, a.pozitie);
+    ore_lucrate = a.ore_lucrate;
+    salariu = a.salariu;
+    ora_start = a.ora_start;
+    ora_final = a.ora_final;}
+
+// destructor
+~angajati(){}
+
+//geteri:
+inline const char* getNume() const { return nume; }
+inline const char* getPozitie() const { return pozitie; }
+inline float getOre_lucrate() const{ return ore_lucrate;}
+inline float getSalariu() const{ return salariu;}
+inline float getOra_start() const { return ora_start; }
+inline float getOra_final() const { return ora_final; }
+
+
+// setarii:
+void setNume(const char* n) {
+    if (n != nullptr && strlen(n) < 100)
+        strcpy(nume, n);}
+
+void setPozitie(const char* p) {
+    if (p != nullptr && strlen(p) < 100)
+        strcpy(pozitie, p);}
+
+void setOre_lucrate(float o) {
+    if (o >= 0)
+        ore_lucrate = o;}
+
+void setSalariu(float s) {
+    if (s >= 0)
+        salariu = s;}
+
+void setOra_start(float os) {
+    if (os >= 0 && os <= 24) ora_start = os;}
+
+void setOra_final(float of) {
+    if (of >= 0 && of <= 24) ora_final = of;}
+
+// functie citire(>>) pt angajati:
+friend std::istream& operator>>(std::istream& citire_angajat, angajati& a){
+citire_angajat>>a.nume>>a.pozitie>>a.ore_lucrate>>a.salariu>>a.ora_start >> a.ora_final;;
+return citire_angajat;}
+
+//functia << pt angajati:
+friend std::ostream& operator<<(std::ostream& afisare_angajati, const angajati &a){
+    afisare_angajati<<"Informatii despre angajat: nume: "<<a.nume<<", pozitie curenta: "<<a.pozitie<<", ore lucrate saptamana asta: "
+    <<a.ore_lucrate<<", program: "<<a.ora_start<<" - "<<a.ora_final<<", salariu(pe ora): "<<a.salariu<<".\n";
+    return afisare_angajati;}
+
+//functia =
+angajati& operator= (const angajati& a){
+    if (this != &a){
+        strcpy(nume, a.nume);
+        strcpy(pozitie, a.pozitie);
+        ore_lucrate = a.ore_lucrate;
+        salariu = a.salariu;
+        ora_start = a.ora_start;
+        ora_final = a.ora_final;}
+    return *this;}
+
+// functie datoarie salariat
+float castig_salariat() const{return ore_lucrate*salariu;}
+};
+
+class comanda{
+private:
+    info_clienti client_comanda;
+    int cate;
+    char pc[10][100]; // max 10 pizza
+    float ora_plasare, ora_livrare;
+
+public:
+
+// constructor default
+comanda() : client_comanda(), cate(0), ora_plasare(0), ora_livrare(0){
+    for (int i = 0; i < 10; i++)
+        strcpy(pc[i], "");}
+
+// constructor cu parametri
+comanda(const info_clienti& c, int cat, const char p[10][100], float op, float ol)
+    : client_comanda(c), cate(cat), ora_plasare(op), ora_livrare(ol) {
+    for (int i = 0; i < cate; i++)
+        strcpy(pc[i], p[i]);}
+
+// copy constructor
+comanda(const comanda& c) {
+    client_comanda = c.client_comanda;
+    cate = c.cate;
+    ora_plasare = c.ora_plasare;
+    ora_livrare = c.ora_livrare;
+    for (int i = 0; i < cate; i++)
+        strcpy(pc[i], c.pc[i]);}
+
+// destructor
+~comanda() {}
+
+//getari:
+info_clienti getClient_comanda() const{ return client_comanda;}
+int getCate() const{ return cate;}
+const char* getPizza(int i) const {
+    if (i >= 0 && i < cate) return pc[i];
+    return "";}
+float getOra_plasare()const{ return ora_plasare;}
+float getOra_livrare() const { return ora_livrare;}
+
+//setarii:
+void setClienti_comanda(const info_clienti& c) { client_comanda = c; }
+void setCate(int c) {if (c >= 0 && c <= 10)cate = c;}
+void setOra_plasare(float op) { if (op >= 0) ora_plasare = op; }
+void setOra_livrare(float ol) { if (ol >= 0) ora_livrare = ol; }
+
+//functia >> pt citire comenzi
+friend std::istream& operator>>(std::istream& citire_comanda, comanda& c){
+citire_comanda>> c.client_comanda>>c.cate;
+for (int i = 0; i < c.cate; i++) citire_comanda >> c.pc[i];
+citire_comanda>>c.ora_plasare>>c.ora_livrare;
+return citire_comanda;
+}
+
+//functia << pt comanda plasata:
+friend std::ostream& operator<<(std::ostream& afisare_comanda, const comanda& c){
+    afisare_comanda<<c.client_comanda<<"Comanda contine "<<c.cate<<" pizza:\n";
+    for (int i = 0; i < c.cate; i++) afisare_comanda << i + 1 << ". " << c.pc[i] << "\n";
+    afisare_comanda<<"\nOra plasare: " << c.ora_plasare<< ", ora livrare: " << c.ora_livrare<<"\n\n";
+    return afisare_comanda;}
+
+//functia =
+comanda& operator= (const comanda& c){
+    if (this != &c){
+        client_comanda = c.client_comanda;
+        cate = c.cate;
+        for (int i = 0; i < cate; i++) strcpy(pc[i], c.pc[i]);
+        ora_plasare = c.ora_plasare;
+        ora_livrare = c.ora_livrare;}
+    return *this;}
+
+// functie timp livrare:
+float timp_livrare() const{
+float durata;
+durata = ora_livrare+ora_plasare;
+while(durata>1){ durata=durata-1;}
+while(durata>=0.6){ durata=durata-0.6;}
+return durata;}
+
+bool timp_valid() const {
+    if (ora_plasare < 11 || ora_plasare > 23.3) return false;
+    if (ora_livrare < 11 || ora_livrare > 23.3) return false;
+    return true;}
+};
+
+
+
+//functia exista destuli curieri?
+void avem_curieri(angajati lista[], int nr_angajati) {
+    //se poate sa nu avem niciun curier azi
+    if (nr_angajati == 0) {
+        std::cout << "Nu exista niciun angajat azi!\n";
+        return;
+    }
+
+    // sortam angajati dupa ora de start
+    for (int i = 0; i < nr_angajati - 1; i++) {
+        for (int j = 0; j < nr_angajati - i - 1; j++) {
+            if (lista[j].getOra_start() > lista[j + 1].getOra_start()) {
+                angajati aux = lista[j];
+                lista[j] = lista[j + 1];
+                lista[j + 1] = aux;
+            }
+        }
+    }
+
+    float max_ora = lista[0].getOra_final();
+    bool nu_avem_curieri = false;
+
+    // verificam daca exista curieri la 11:
+    if (lista[0].getOra_start() > 11.0) {
+        std::cout << "Nu avem niciun curier intre orele: 11:00 - " << lista[0].getOra_start() << "\n";
+        nu_avem_curieri = true;}
+
+    // Verificam gaurile dintre programele curierilor
+    for (int i = 1; i < nr_angajati; i++) {
+        if (lista[i].getOra_start() > max_ora) {
+            if( nu_avem_curieri == true ){std::cout << "Nu avem niciun curier intre orele: ";}
+            std::cout<< max_ora << " - " << lista[i].getOra_start() << "\n";
+            nu_avem_curieri = true;}
+        if (lista[i].getOra_final() > max_ora) {max_ora = lista[i].getOra_final();}
+    }
+
+    // Verificam finalul programului (23:30)
+    if (max_ora < 23.3) {
+        std::cout << "Nu avem niciun curier intre orele: " << max_ora << " - 23:30\n";
+        nu_avem_curieri = true;
+    }
+
+    if ( nu_avem_curieri == false) {
+        std::cout << "Avem acoperire cu curieri pentru toata ziua!\n";
+    }
+}
+
+
+//functia daca se pot sau nu executa comenzile:
+void da_nu_livrari(comanda lista_comenzi[], int nr_comenzi, angajati echipa[], int nr_angajati){
+    for (int i = 0; i < nr_comenzi; i++) {
+        // verificam daca timpul valid
+        if ( lista_comenzi[i].timp_valid() == false) {
+            std::cout<<"Comanda clientului "<<lista_comenzi[i].getClient_comanda().getNume_client()<<" nu se poate livra, caci a fost plasata in afara programului.\n";
+            continue;
+        }
+
+        //verificam daca nr de telofon este valid
+        if (lista_comenzi[i].getClient_comanda().nr_tel_valid() == false) {
+            std::cout<<"Nr de telefon al clientului "<<lista_comenzi[i].getClient_comanda().getNume_client()<<" este invalid.\n";
+            continue;}
+
+        //verificam daca exista curier care lucreaza in acel interval
+        bool se_poate_livra = false;
+        for(int  j=0; j<nr_angajati; j++){
+            if (strcmp(echipa[j].getPozitie(), "curier") == 0) {
+                if(lista_comenzi[i].getOra_plasare() >= echipa[j].getOra_start() && lista_comenzi[i].getOra_livrare() <= echipa[j].getOra_final())
+                    {se_poate_livra = true; break;}}}
+
+            //mesajul final, daca a trecut de retul validarilor:
+            if( se_poate_livra ){ std::cout<<"Comanda clientului "<<lista_comenzi[i].getClient_comanda().getNume_client()<<" se poate livra. Durata livrarii este de: "<<lista_comenzi[i].timp_livrare()<<".\n";}
+            else std::cout<<"Comanda clientului "<<lista_comenzi[i].getClient_comanda().getNume_client()<<" nu se poate livra, caci nu exsista curieri disponibili.\n";
+    }
+}
+
+
+int main(){
+//initializarea cu pizza:
+info_pizza pizza[10];
+pizza[0] = info_pizza("Margherita", "mozzarella, busuioc", "subtire", "tomato");
+pizza[1] = info_pizza("Pepperoni", "mozzarella, salam", "clasic", "tomato");
+pizza[2] = info_pizza("Quattro Formaggi", "mozzarella, gorgonzola,parmezan", "clasic", "alb");
+pizza[3] = info_pizza("Capricciosa", "sunca, ciuperci, masline", "clasic", "tomato");
+pizza[4] = info_pizza("Diavola", "mozzarella, salam picant, ardei iute", "subtire", "tomato");
+
+//initializare clienti
+const int nr_clienti = 4;
+info_clienti clienti[10];
+clienti[0] = info_clienti("Pop Ana", "Str Matei Voicu", "0711623342");
+clienti[1] = info_clienti("Ionescu Mihai", "Str Unirii", "0723345567");
+clienti[2] = info_clienti("Ciulin Andreea", "Str Libertatii", "0734456678");
+clienti[3] = info_clienti("Musat Nicoleta", "Str Heroilor", "021444");
+
+//initializare  angajati:
+const int nr_angajati = 4;
+angajati angajatii[10];
+angajatii[0] = angajati("Popescu Alex", "curier", 12, 13.5, 11, 17);
+angajatii[1] = angajati("Popescu Ioana", "curier", 25, 40, 17, 23.50);
+angajatii[2] = angajati("Ionescu Mihai", "manager", 40, 38.5, 8, 16);
+angajatii[3] = angajati("Marin Cristina", "bucatar", 22, 30, 9, 17);
+
+//initializare comenzi:
+const int nr_comenzi = 4;
+comanda comenzi[10];
+
+char lista1[10][100] = {"Margherita", "Pepperoni"};
+char lista2[10][100] = {"Quattro_Formaggi"};
+char lista3[10][100] = {"Capricciosa", "Peperoni"};
+char lista4[10][100] = {"Diavola", "Peperoni", "Margherita"};
+
+comenzi[0] = comanda(clienti[0], 2, lista1, 12.30, 13.15);
+comenzi[1] = comanda(clienti[1], 1, lista2, 11.00, 11.45);
+comenzi[2] = comanda(clienti[2], 2, lista3, 10.20, 11.05);
+comenzi[3] = comanda(clienti[3], 3, lista4, 20.10, 21.00);
+
+int x, i;
+
+
+
+std::cout<<"Buna ziua!\n Alegeti ce informatii doriti sa vedeti\n1. Pizza disponibila\n2.Informatii clienti\n";
+std::cout<<"3.Informatii angajatii\n4.Informatii comenzi\n5.Daca avem destui curieri programati sa lucreze\n6.Daca se pot excuta toate livrarile\n";
+std::cout<<"7.Cat trebuie platit fiecare angajat ziua acesata\nDaca doriti sa inchideti, apasati 0.\n\n";
+do{
+std::cin>>x;
+    switch(x) {
+    case 0:
+        std::cout<<"Zi buna!";
+        break;
+    case 1:
+        std::cout<<"Pizza disponibila in aceasta zi:\n";
+        for(i=0; i<info_pizza::getTotalPizze(); i++){ std::cout<<pizza[i];}
+        std::cout << "\nNr pizze disponibile = " << info_pizza::getTotalPizze() << std::endl;
+        break;
+    case 2:
+        std::cout<<"Informatii clienti:\n";
+        for(i=0; i<nr_clienti; i++){ std::cout<<clienti[i];}
+        break;
+    case 3:
+        std::cout<<"Informatii angajatii:\n";
+        for(i=0; i<nr_angajati; i++){ std::cout<<angajatii[i];}
+        break;
+    case 4:
+        std::cout<<"Comenzile plasate azi:\n\n";
+        for(i=0; i<nr_comenzi; i++){ std::cout<<comenzi[i];}
+        break;
+    case 5:
+        avem_curieri(angajatii, nr_angajati);
+        break;
+    case 6:
+        std::cout<<"Se verifică eligibilitatea comenzilor pentru livrare:\n";
+        da_nu_livrari(comenzi, nr_comenzi,angajatii, nr_angajati);
+        break;
+    case 7:
+        std::cout<<"Detalii plata angajati:\n";
+        for(i=0; i<nr_angajati; i++){ std::cout<<"Angajatul: "<<angajatii[i].getNume()<<" trebuie sa incaseze "<<angajatii[i].castig_salariat()<<" de lei;\n";}
+        break;
+    default:
+        std::cout <<x<<" nu este o optinue, va rog alegeti una dintre obtiunile prezentate mai jos1.";
+        break;}
+
+std::cout<<"\n\n\n";
+}while(x != 0);
+
+return 0;}
