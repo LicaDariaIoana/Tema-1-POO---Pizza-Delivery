@@ -1,13 +1,12 @@
 # Tema-1-POO---Pizza-Delivery
 Problema: Un program pentru managerul unui magazin de pizza delivery, in care poate sa vada cu usurinta date importante;
 
-Date de intrare se afla in fisierul "date_intrare.txt". Ca date de intrare avem detalii despre pizza, clienti, angajati si comenzile plasate (acestea sunt si clasele):
 
+Date de intrare: sunt inițializate direct în  main (acestea sunt si clasele cu parametri lor):
     -nume pizza, topinguri, blat, sos;
     -nume clienti, adresa lor, nr lor de telefon;
     -numele angajatilor, pozitia lor, orele lucrate saptamana aceasta, salariul lor pe ora, ora la care incep/ termina in ziua aceasta;
-    -comenzile din acea zi, fiecare comanda fiind compusa din: clientul, pizzele comandate, curierul care livreaza, ora la care e plasata
-     comanda respectiv ora la care ar trebui livrata;
+    -comenzile din acea zi, fiecare comanda fiind compusa din: clientul, pizzele comandate, curierul care livreaza, ora la care e plasata, comanda respectiv ora la care ar trebui livrata;
 
 Operatii posibile: Presupusul manager care foloseste acest program poate sa verifice:
 
